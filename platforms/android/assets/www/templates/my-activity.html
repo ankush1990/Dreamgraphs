@@ -1,0 +1,32 @@
+<ion-view view-title="My Activity">
+	<ion-content>
+		<div class="list card custom-list-card" ng-repeat="myactivity in myactivities" ng-if="!myactivities.err">
+			<div class="item item-avatar">
+				<img ng-if="myactivity.user_image_url" src="{{ myactivity.user_image_url }}">
+				<span class="pull-left">
+					<h3>{{ myactivity.fisrt_name }} {{ myactivity.last_name }}</h3>
+					<p class="text-magenta">{{ myactivity.wall_date }}</p>
+				</span>
+				<span class="pull-right" style="letter-spacing:2px;">
+					<p><i class="ion-ios-heart-outline text-magenta"></i> {{ myactivity.like_count }} <i class="ion-ios-chatbubble-outline"></i> {{ myactivity.comment_count }} <i class="ion-android-share-alt"></i></p>
+				</span>
+			</div>
+			<div class="item item-body">
+				<div ng-if="myactivity.wall_image_url">
+					<img ng-if="myactivity.type == 'image'" class="full-image" src="{{ myactivity.wall_image_url }}">
+					<div class="video-container" ng-if="myactivity.type == 'video'">
+						<iframe src="" dynamic-url dynamic-url-src="{{ myactivity.wall_image_url}}" frameborder="0" width="560" height="315" ></iframe>
+					</div>
+				</div>
+				<p>{{ myactivity.details }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-100 text-center" style="margin-bottom:20px;">
+				<p><i ng-if="myactivities.err" class="ion-alert-circled icon-popup"></i></p>
+				<h4 ng-if="myactivities.err" class="text-primary">No Results Found</h4>
+			</div>
+		</div>
+    </ion-content>
+	<div ng-include src="'templates/bottom-tabs.html'"></div>
+</ion-view>

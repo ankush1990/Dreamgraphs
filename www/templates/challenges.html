@@ -1,0 +1,59 @@
+<ion-view view-title="Challenges Bank">
+    <ion-content>
+		<div class="row text-center custom-search">
+			 <div class="col col-40">
+				<div class="list">
+				   <label class="item item-input item-select">
+					  <div class="input-label"></div>
+					  <select>
+						 <option selected>Category</option>
+						 <option>Drink Water</option>
+						 <option>Work 4 Gym</option>
+						 <option>Drink Water</option>
+					  </select>
+				   </label>
+				</div>
+			 </div>
+			 <div class="col col-20">
+				<div class="list">
+				   <label class="item item-input item-select">
+					  <div class="input-label"></div>
+					  <select>
+						 <option selected>Level</option>
+						 <option>1</option>
+						 <option>2</option>
+						 <option>3</option>
+					  </select>
+				   </label>
+				</div>
+			 </div>
+			 <div class="col col-20">
+				<div class="list">
+					<label class="item item-input">
+						<input type="text" placeholder="Points">
+					</label>
+				</div>
+			 </div>
+			 <div class="col col-10">
+				<button class="button button-custom icon ion-android-search"></button>
+			</div>
+			 <div class="col col-10">
+				<button class="button button-custom icon ion-android-refresh"></button>
+			</div>
+		</div>
+		<a ng-repeat = "challenge in challenges" ng-if="challenge.challenge_id" ui-sref="app.challenge-details({challenge_id:challenge.challenge_id})">
+         <div style="position:relative;width:100%;line-height: 0;">
+            <img ng-if="challenge.image" src="{{ challenge.image }}" style="width:100%" alt="challengeImg">			  
+            <div class="ion-dom"></div>
+            <p class="challenge_title" ng-if="challenge.title">{{ challenge.title }}</p>
+         </div>
+		</a>
+		<div class="row">
+			<div class="col col-100 text-center" style="margin-bottom:20px;">
+				<p><i ng-if="!challenges" class="ion-alert-circled icon-popup"></i></p>
+				<h4 ng-if="!challenges" class="text-primary">No Results Found</h4>
+			</div>
+		</div>
+    </ion-content>
+	<div ng-include src="'templates/bottom-tabs.html'"></div>	
+</ion-view>

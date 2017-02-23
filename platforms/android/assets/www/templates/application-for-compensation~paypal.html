@@ -1,0 +1,30 @@
+<ion-view view-title="Application For Compensation / Paypal">
+	<ion-content>
+	<div class="row">			
+		<div class="col col-100">						
+			<form>							
+				<div class="list list-custom">									 
+					<label class="item item-input item-select">	
+					<div class="input-label custom-input-lable"> Amount	</div>	
+						<select class="custom-amount-select">
+						<option>10$</option>
+						<option>20$</option>
+						<option>30$</option>
+						</select>					  
+					</label>
+					<label class="item item-custom item-input item-floating-label">							<span class="input-label">ID</span>
+							<input type="text" placeholder="ID"  name="username">
+				</label>										<label class="item item-custom item-input item-floating-label">									<span class="input-label">Payment Type</span>									<input type="text" placeholder="Payment Type"  name="username">					</label>								
+				</div>								
+				<button class="button button-custom button-block">Send Request</button>
+				</form>					
+		</div>			
+	
+	</div>
+		
+		<div class="row">
+			<div class="col col-100" style="margin-bottom:30px;"></div>
+		</div>
+    </ion-content>
+	<div ng-include src="'templates/bottom-tabs.html'"></div>
+</ion-view>
